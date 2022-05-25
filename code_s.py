@@ -29,13 +29,11 @@ def Check_Node(number , ListNode):
     return Node(number,None,None,False) in ListNode
 ListNode = []
 
+
 with open('filecheck.txt') as file:
         all_file = file.read()
-with open('final.py', 'w') as newf:
-        newf.write(all_file)
-        
 
-
+print(all_file)
 
 
 def Process(file):
@@ -189,17 +187,11 @@ def Process(file):
                         # output_list = ['node'+node.num_Node+'out'+str(x)+'.out' for x in range(1,output_num+1,1)]
                         
                             output = ','.join(x for x in output_list)
-                            with open('final.py', 'a') as newf:
-                                newf.write('\nos.system(\'prostak.exe -o '+name+' '+id+' '+input+' '+output+'\')')
-                                newf.write('\nimg = cv2.imread(\''+output_list[0]+'\')')
-                                newf.write('\nif(img is not None):')
-                                newf.write('\n\tcv2.imshow(\'photo\',img)')
-                                newf.write('\n\tcv2.waitKey(500)')      
-                            #os.system('prostak.exe -o '+name+' '+id+' '+input+' '+output)
+                            os.system('prostak.exe -o '+name+' '+id+' '+input+' '+output)
                             print('prostak.exe -o '+name+' '+id+' '+input+' '+output)
-                            #img = cv2.imread(output_list[0])          
-                            # if(img is not None):
-                            #     cv2.imshow('photo',img)
+                            img = cv2.imread(output_list[0])          
+                            if(img is not None):
+                                cv2.imshow('photo',img)
                             node.out_Node = {}
                             for (i,x) in enumerate(output_list):
                                 node.out_Node.update({i+1:x})
@@ -208,28 +200,22 @@ def Process(file):
                     else : 
                             print("Node" , num_node)
                             output = ','.join(x for x in output_list)
-                            #os.system('prostak.exe -o '+name+' '+id+' '+output)
-                            with open('final.py', 'a') as newf:
-                                newf.write('\nos.system(\'prostak.exe -o '+name+' '+id+' '+output+'\')')
-                                newf.write('\nimg = cv2.imread(\''+output_list[0]+'\')')
-                                newf.write('\nif(img is not None):')
-                                newf.write('\n\tcv2.imshow(\'photo\',img)')
-                                newf.write('\ncv2.waitKey(500)')      
+                            os.system('prostak.exe -o '+name+' '+id+' '+output)
                             print('prostak.exe -o '+name+' '+id+' '+output)
-                            # img = cv2.imread(output_list[0])          
-                            # if(img is not None):
-                            #     cv2.imshow('photo',img)
+                            img = cv2.imread(output_list[0])          
+                            if(img is not None):
+                                cv2.imshow('photo',img)
                             node.out_Node = {}
                             for (i,x) in enumerate(output_list):
                                 node.out_Node.update({i+1:x})
                             node.Check_In = True
-                    
-                 
+                    cv2.waitKey(50)
+                            
 
 
 Process("cells.ap")
                     
-            
+                    
                     
                 
 
