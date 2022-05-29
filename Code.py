@@ -4,6 +4,7 @@ from array import *
 import re
 import os
 import cv2
+import DocfileSQL as sql1
 def Creat_Newfile(namefile):
     with open(namefile) as file:
         all_file = file.read()
@@ -35,8 +36,16 @@ with open('final.py', 'w') as newf:
         newf.write(all_file)
         
 
+with open('file_funtion.txt') as file:
+        all_file = file.read()
+with open('funtion.py', 'w') as newf:
+        newf.write(all_file)
+
+with open('file_note.txt', 'w') as newf:
+        newf.write('File Note\n\n')
 
 
+list_name = []
 
 def Process(file):
     newfile = Creat_Newfile(file)
@@ -125,6 +134,7 @@ def Process(file):
                     config_section1 =  config[section]#tao bien moi la lay bat dau tu section dang xet 
                     
                     name = config_section1['name']#lay ten ham 
+                    name1 = config_section1['name']
                     if(name == 'heqm'):
                         name = 'heq'
                     if(name == 'avg2'):
@@ -135,6 +145,9 @@ def Process(file):
                         name = 'movl'
                     if(name == 'max2'):
                         name = 'max'
+                    
+                    
+                    
                     id = config_section1['id']# lay parametr
                     if('%' in id):
                         id =''
@@ -142,9 +155,10 @@ def Process(file):
                     num_node = int(section.split(':')[1])#lay so thu tu Node minh dang xet (Node trong file cell.ap)
                     output_num = 0#so luong dau ra = 0
                     if 'file' in list_element_of_node: #neu thong so file co trong Node      
-                        str_value_of_file = config_section1['file'] #lay gia tri trong option file  
+                        str_value_of_file = sql1.get_ouput(name1) #lay gia tri trong option file  
+                        list_str_value_of_file = str_value_of_file if ',' not in  str_value_of_file else  str_value_of_file.split(',')#lay duoi dau ra cua file 
                         output_num =  1 if ',' not in  str_value_of_file else  len(str_value_of_file.split(','))#dem so luong dau vao bang cach kiem tra so luong any trong option file 
-                    
+                        
                         
                         #list_value_of_file = [str_value_of_file] if ','  not in str_value_of_file else str_value_of_file.split(',')
                     #3 dong tren kiem tra xem co bn dau ra cua node 
@@ -154,6 +168,22 @@ def Process(file):
                     node_number =  Node(num_node, None, None , False)
                     node = ListNode[ListNode.index(node_number)]
                     
+                    
+                    if name not in list_name:
+                        list_name.append(name)
+                        if node.in_Node is not None:
+                            with open('funtion.py', 'a') as newf1:
+                                        newf1.write('\ndef '+name+'_result(command ,id , input ,output):')
+                                        newf1.write('\n\tos.system(command+\' -o '+name+' \'+id+\' \'+input+\' \'+output)')
+                                        newf1.write('\n\treturn output\n')
+                            
+                        else:
+                            with open('funtion.py', 'a') as newf1:
+                                        newf1.write('\ndef '+name+'_result(command ,id , output):')
+                                        newf1.write('\n\tos.system(command+\' -o '+name+' \'+id+\' \'+output)')
+                                        newf1.write('\n\treturn output\n')
+
+                
                     # for node in ListNode:
                     #list_input  = list(node.in_Node.values())
                     if(node.Check_In == True):
@@ -161,8 +191,10 @@ def Process(file):
                 
                     # print(node.num_Node)
                     if(node not in list_input_element):#kiem tra neu ma node dang xet ko phai la node dau vao 
-                        
-                        output_list = ['node'+str(node.num_Node)+'out'+str(x)+'.out' for x in range(1,output_num+1,1)]#dat ten cho output
+                        if(output_num == 1):
+                            output_list = ['node'+str(node.num_Node)+'out'+str(x)+'.'+list_str_value_of_file for x in range(1,output_num+1,1)]
+                        else:
+                            output_list = ['node'+str(node.num_Node)+'out'+str(x)+'.'+list_str_value_of_file[x - 1] for x in range(1,output_num+1,1)]#dat ten cho output
                         #print(output_list)
                     else:
                         output_list = [node.out_Node[1]]
@@ -185,16 +217,26 @@ def Process(file):
                             *temp1,  = node.in_Node
                             temp = sorted([*map(lambda x: int(x), temp1)])
                             #print(node.num_Node)
-                            input = ','.join(map(lambda x: node.in_Node[x].out_Node[1],temp))
+                            input = ','.join(map(lambda x:'path_data+\''+node.in_Node[x].out_Node[1]+'\'',temp))
                         # output_list = ['node'+node.num_Node+'out'+str(x)+'.out' for x in range(1,output_num+1,1)]
                         
-                            output = ','.join(x for x in output_list)
+                            output = ','.join('path_data+\''+x+'\'' for x in output_list)
                             with open('final.py', 'a') as newf:
-                                newf.write('\nos.system(\'prostak.exe -o '+name+' '+id+' '+input+' '+output+'\')')
+                                #newf.write('\nos.system(command+\' -o '+name+' '+id+' '+input+' '+output+'\')')
+                                newf.write('\ninput = ('+input+')')
+                                newf.write('\noutput = ('+output+')')
+                                newf.write('\nif type(output) != type(\'abc\'):')
+                                newf.write('\n\toutput = \',\'.join(output)')
+                                newf.write('\nif type(input) != type(\'abc\'):')
+                                newf.write('\n\tinput = \',\'.join(input)')
+                                newf.write('\nfun.'+name+'_result(command,'+'\''+id+'\''+',input,output)')
                                 newf.write('\nimg = cv2.imread(\''+output_list[0]+'\')')
-                                newf.write('\nif(img is not None):')
+                                newf.write('\nif(show_flag == 1 and img is not None):')
                                 newf.write('\n\tcv2.imshow(\'photo\',img)')
-                                newf.write('\n\tcv2.waitKey(500)')      
+                                newf.write('\n\tcv2.waitKey(500)\n')
+                            print(sql1.get_message(name1))
+                            with open('file_note.txt' ,'a',encoding='utf-8') as newf2:
+                                newf2.write('\n' + sql1.get_message(name1)+' from the input file stored in' + input)      
                             #os.system('prostak.exe -o '+name+' '+id+' '+input+' '+output)
                             print('prostak.exe -o '+name+' '+id+' '+input+' '+output)
                             #img = cv2.imread(output_list[0])          
@@ -207,14 +249,21 @@ def Process(file):
                             
                     else : 
                             print("Node" , num_node)
-                            output = ','.join(x for x in output_list)
+                            output = ','.join('path_data+\''+x+'\'' for x in output_list)
                             #os.system('prostak.exe -o '+name+' '+id+' '+output)
                             with open('final.py', 'a') as newf:
-                                newf.write('\nos.system(\'prostak.exe -o '+name+' '+id+' '+output+'\')')
+                                #newf.write('\nos.system(command+\' -o '+name+' '+id+' '+output+'\')')
+                                newf.write('\noutput = ('+output+')')
+                                newf.write('\nif type(output) != type(\'abc\'):')
+                                newf.write('\n\toutput = \',\'.join(output)')
+                                newf.write('\nfun.'+name+'_result(command,''\''+id+'\',output)')
                                 newf.write('\nimg = cv2.imread(\''+output_list[0]+'\')')
-                                newf.write('\nif(img is not None):')
+                                newf.write('\nif(show_flag == 1 and img is not None):')
                                 newf.write('\n\tcv2.imshow(\'photo\',img)')
-                                newf.write('\ncv2.waitKey(500)')      
+                                newf.write('\ncv2.waitKey(500)\n')  
+                            print(sql1.get_message(name1))
+                            with open('file_note.txt' ,'a',encoding='utf-8') as newf2:
+                                newf2.write('\n' + sql1.get_message(name1))     
                             print('prostak.exe -o '+name+' '+id+' '+output)
                             # img = cv2.imread(output_list[0])          
                             # if(img is not None):
@@ -223,7 +272,9 @@ def Process(file):
                             for (i,x) in enumerate(output_list):
                                 node.out_Node.update({i+1:x})
                             node.Check_In = True
-                    
+                
+
+                 
                  
 
 

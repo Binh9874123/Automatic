@@ -1,2 +1,8 @@
 import os 
 import cv2
+import funtion as fun
+command = 'prostak.exe'
+
+path_data = 'C:\\Users\\Binh9874123\\OneDrive\\Desktop\\Automatic\\'
+
+show_flag = 0

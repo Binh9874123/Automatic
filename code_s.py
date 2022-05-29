@@ -29,12 +29,18 @@ def Check_Node(number , ListNode):
     return Node(number,None,None,False) in ListNode
 ListNode = []
 
-
 with open('filecheck.txt') as file:
         all_file = file.read()
+with open('final.py', 'w') as newf:
+        newf.write(all_file)
+        
 
-print(all_file)
+with open('file_funtion.txt') as file:
+        all_file = file.read()
+with open('funtion.py', 'w') as newf:
+        newf.write(all_file)
 
+list_name = []
 
 def Process(file):
     newfile = Creat_Newfile(file)
@@ -133,6 +139,10 @@ def Process(file):
                         name = 'movl'
                     if(name == 'max2'):
                         name = 'max'
+                    
+                    
+                    
+                    
                     id = config_section1['id']# lay parametr
                     if('%' in id):
                         id =''
@@ -152,6 +162,20 @@ def Process(file):
                     node_number =  Node(num_node, None, None , False)
                     node = ListNode[ListNode.index(node_number)]
                     
+                    if name not in list_name:
+                        list_name.append(name)
+                        if node.in_Node is not None:
+                            with open('funtion.py', 'a') as newf1:
+                                        newf1.write('\ndef '+name+'_result(command ,id , input ,output):')
+                                        newf1.write('\n\tos.system(command+\' -o '+name+' \'+id+\' \'+input+\' \'+output)')
+                                        newf1.write('\n\treturn output\n')
+                        else:
+                            with open('funtion.py', 'a') as newf1:
+                                        newf1.write('\ndef '+name+'_result(command ,id , output):')
+                                        newf1.write('\n\tos.system(command+\' -o '+name+' \'+id+\' \'+output)')
+                                        newf1.write('\n\treturn output\n')
+
+                
                     # for node in ListNode:
                     #list_input  = list(node.in_Node.values())
                     if(node.Check_In == True):
@@ -183,15 +207,28 @@ def Process(file):
                             *temp1,  = node.in_Node
                             temp = sorted([*map(lambda x: int(x), temp1)])
                             #print(node.num_Node)
-                            input = ','.join(map(lambda x: node.in_Node[x].out_Node[1],temp))
+                            input = ','.join(map(lambda x:'path_data+\''+node.in_Node[x].out_Node[1]+'\'',temp))
                         # output_list = ['node'+node.num_Node+'out'+str(x)+'.out' for x in range(1,output_num+1,1)]
                         
-                            output = ','.join(x for x in output_list)
-                            os.system('prostak.exe -o '+name+' '+id+' '+input+' '+output)
+                            output = ','.join('path_data+\''+x+'\'' for x in output_list)
+                            with open('final.py', 'a') as newf:
+                                #newf.write('\nos.system(command+\' -o '+name+' '+id+' '+input+' '+output+'\')')
+                                newf.write('\ninput = ('+input+')')
+                                newf.write('\noutput = ('+output+')')
+                                newf.write('\nif type(output) != type(\'abc\'):')
+                                newf.write('\n\toutput = \',\'.join(output)')
+                                newf.write('\nif type(input) != type(\'abc\'):')
+                                newf.write('\n\tinput = \',\'.join(input)')
+                                newf.write('\nfun.'+name+'_result(command,'+'\''+id+'\''+',input,output)')
+                                newf.write('\nimg = cv2.imread(\''+output_list[0]+'\')')
+                                newf.write('\nif(show_flag == 1 and img is not None):')
+                                newf.write('\n\tcv2.imshow(\'photo\',img)')
+                                newf.write('\n\tcv2.waitKey(500)\n')      
+                            #os.system('prostak.exe -o '+name+' '+id+' '+input+' '+output)
                             print('prostak.exe -o '+name+' '+id+' '+input+' '+output)
-                            img = cv2.imread(output_list[0])          
-                            if(img is not None):
-                                cv2.imshow('photo',img)
+                            #img = cv2.imread(output_list[0])          
+                            # if(img is not None):
+                            #     cv2.imshow('photo',img)
                             node.out_Node = {}
                             for (i,x) in enumerate(output_list):
                                 node.out_Node.update({i+1:x})
@@ -199,23 +236,35 @@ def Process(file):
                             
                     else : 
                             print("Node" , num_node)
-                            output = ','.join(x for x in output_list)
-                            os.system('prostak.exe -o '+name+' '+id+' '+output)
+                            output = ','.join('path_data+\''+x+'\'' for x in output_list)
+                            #os.system('prostak.exe -o '+name+' '+id+' '+output)
+                            with open('final.py', 'a') as newf:
+                                #newf.write('\nos.system(command+\' -o '+name+' '+id+' '+output+'\')')
+                                newf.write('\noutput = ('+output+')')
+                                newf.write('\nif type(output) != type(\'abc\'):')
+                                newf.write('\n\toutput = \',\'.join(output)')
+                                newf.write('\nfun.'+name+'_result(command,''\''+id+'\',output)')
+                                newf.write('\nimg = cv2.imread(\''+output_list[0]+'\')')
+                                newf.write('\nif(show_flag == 1 and img is not None):')
+                                newf.write('\n\tcv2.imshow(\'photo\',img)')
+                                newf.write('\ncv2.waitKey(500)\n')      
                             print('prostak.exe -o '+name+' '+id+' '+output)
-                            img = cv2.imread(output_list[0])          
-                            if(img is not None):
-                                cv2.imshow('photo',img)
+                            # img = cv2.imread(output_list[0])          
+                            # if(img is not None):
+                            #     cv2.imshow('photo',img)
                             node.out_Node = {}
                             for (i,x) in enumerate(output_list):
                                 node.out_Node.update({i+1:x})
                             node.Check_In = True
-                    cv2.waitKey(50)
-                            
+                
+
+                 
+                 
 
 
 Process("cells.ap")
                     
-                    
+            
                     
                 
 
