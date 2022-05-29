@@ -1,73 +1,137 @@
 File Note
 
 
-Этот оператор создает структурный элемент
-Пороговый фильтр from the input file stored inpath_data+'d218.tif'
-Этот оператор создает структурный элемент
-Этот оператор масштабирует изображение. from the input file stored inpath_data+'d218.tif'
-Этот оператор создает структурный элемент
-Этот оператор создает структурный элемент
-Этот оператор создает структурный элемент
-Этот оператор масштабирует изображение. from the input file stored inpath_data+'f218.tif'
-Этот оператор масштабирует изображение. from the input file stored inpath_data+'r218.tif'
-Этот оператор создает структурный элемент
-Этот оператор создает структурный элемент
-Этот оператор масштабирования from the input file stored inpath_data+'node82out1.tif'
-Этот оператор вычисляет произведение from the input file stored inpath_data+'node21out1.tif',path_data+'d218.tif'
-Этот оператор выравнивает гистограмму с учетом маски from the input file stored inpath_data+'node19out1.tif',path_data+'node21out1.tif'
-Этот оператор обращает изображение from the input file stored inpath_data+'node82out1.tif'
-Этот оператор выравнивает гистограмму from the input file stored inpath_data+'node41out1.tif'
-Этот оператор выравнивает гистограмму from the input file stored inpath_data+'node83out1.tif'
-Этот оператор удаляет шум по Кримминсу (Crimmins) from the input file stored inpath_data+'node80out1.tif'
-Этот оператор удаляет шум по Кримминсу (Crimmins) from the input file stored inpath_data+'node81out1.tif'
-Удаление шума с помощью УЧП from the input file stored inpath_data+'node27out1.tif'
-Этот оператор масштабирует изображение. from the input file stored inpath_data+'node7out1.tif'
-Этот оператор сужения from the input file stored inpath_data+'node84out1.tif',path_data+'node48out1.txt'
-Этот оператор сужения from the input file stored inpath_data+'node85out1.tif',path_data+'node48out1.txt'
-Этот оператор попиксельное среднее from the input file stored inpath_data+'node47out1.tif',path_data+'node49out1.tif'
-Удаление шума с помощью УЧП from the input file stored inpath_data+'node50out1.tif'
-Этот оператор сужения from the input file stored inpath_data+'node23out1.tif',path_data+'node4out1.txt'
-Этот оператор морфологической реконструкции from the input file stored inpath_data+'node23out1.tif',path_data+'node3out1.tif'
-Этот оператор обращает изображение from the input file stored inpath_data+'node5out1.tif'
-Этот оператор сужения from the input file stored inpath_data+'node6out1.tif',path_data+'node4out1.txt'
-Этот оператор морфологической реконструкции from the input file stored inpath_data+'node6out1.tif',path_data+'node8out1.tif'
+
+Этот оператор создает структурный элемент -s 9,9,square to the output file path_data+'node4out1.txt'
+
+Пороговый фильтр from the input file stored in path_data+'d218.tif' to the output file path_data+'node21out1.tif',path_data+'node21out2.txt'
+
+Этот оператор создает структурный элемент -s 3,3,square to the output file path_data+'node31out1.txt'
+
+Этот оператор масштабирует изображение. from the input file stored in path_data+'d218.tif' to the output file path_data+'node35out1.tif'
+
+Этот оператор создает структурный элемент -s 3,3,square to the output file path_data+'node48out1.txt'
+
+Этот оператор создает структурный элемент -s 23,23,disk to the output file path_data+'node59out1.txt'
+
+Этот оператор создает структурный элемент -s 3,3,square to the output file path_data+'node73out1.txt'
+
+Этот оператор масштабирует изображение. from the input file stored in path_data+'f218.tif' to the output file path_data+'node82out1.tif'
+
+Этот оператор масштабирует изображение. from the input file stored in path_data+'r218.tif' to the output file path_data+'node83out1.tif'
+
+Этот оператор создает структурный элемент -s 9,9,disk to the output file path_data+'node95out1.txt'
+
+Этот оператор создает структурный элемент -s 5,5,square to the output file path_data+'node112out1.txt'
+
+Этот оператор масштабирования from the input file stored in path_data+'node82out1.tif' to the output file path_data+'node127out1.tif'
+
+Этот оператор вычисляет произведение from the input file stored in path_data+'node21out1.tif',path_data+'d218.tif' to the output file path_data+'node19out1.tif'
+
+Этот оператор выравнивает гистограмму с учетом маски from the input file stored in path_data+'node19out1.tif',path_data+'node21out1.tif' to the output file path_data+'node27out1.tif'
+
+Этот оператор обращает изображение from the input file stored in path_data+'node82out1.tif' to the output file path_data+'node41out1.tif'
+
+Этот оператор выравнивает гистограмму from the input file stored in path_data+'node41out1.tif' to the output file path_data+'node80out1.tif'
+
+Этот оператор выравнивает гистограмму from the input file stored in path_data+'node83out1.tif' to the output file path_data+'node81out1.tif'
+
+Этот оператор удаляет шум по Кримминсу (Crimmins) from the input file stored in path_data+'node80out1.tif' to the output file path_data+'node84out1.tif'
+
+Этот оператор удаляет шум по Кримминсу (Crimmins) from the input file stored in path_data+'node81out1.tif' to the output file path_data+'node85out1.tif'
+
+Удаление шума с помощью УЧП from the input file stored in path_data+'node27out1.tif' to the output file path_data+'node7out1.tif'
+
+Этот оператор масштабирует изображение. from the input file stored in path_data+'node7out1.tif' to the output file path_data+'node23out1.tif'
+
+Этот оператор сужения from the input file stored in path_data+'node84out1.tif',path_data+'node48out1.txt' to the output file path_data+'node47out1.tif'
+
+Этот оператор сужения from the input file stored in path_data+'node85out1.tif',path_data+'node48out1.txt' to the output file path_data+'node49out1.tif'
+
+Этот оператор попиксельное среднее from the input file stored in path_data+'node47out1.tif',path_data+'node49out1.tif' to the output file path_data+'node50out1.tif'
+
+Удаление шума с помощью УЧП from the input file stored in path_data+'node50out1.tif' to the output file path_data+'node87out1.tif'
+
+Этот оператор сужения from the input file stored in path_data+'node23out1.tif',path_data+'node4out1.txt' to the output file path_data+'node3out1.tif'
+
+Этот оператор морфологической реконструкции from the input file stored in path_data+'node23out1.tif',path_data+'node3out1.tif' to the output file path_data+'node5out1.tif'
+
+Этот оператор обращает изображение from the input file stored in path_data+'node5out1.tif' to the output file path_data+'node6out1.tif'
+
+Этот оператор сужения from the input file stored in path_data+'node6out1.tif',path_data+'node4out1.txt' to the output file path_data+'node8out1.tif'
+
+Этот оператор морфологической реконструкции from the input file stored in path_data+'node6out1.tif',path_data+'node8out1.tif' to the output file path_data+'node9out1.tif'
+
 Сегментация двумерных изображений методом водоотлива.
 Области изображения, соответствующие объектам, помечаются
 единицей и разделяются линиями границы, толщиной в один
-пиксел и помеченными нулем. from the input file stored inpath_data+'node9out1.tif'
-Этот оператор вычисляет произведение from the input file stored inpath_data+'node18out1.tif',path_data+'node23out1.tif'
-Этот оператор сужения from the input file stored inpath_data+'node87out1.tif',path_data+'node59out1.txt'
-Этот оператор морфологической реконструкции from the input file stored inpath_data+'node87out1.tif',path_data+'node52out1.tif'
-Пороговый фильтр from the input file stored inpath_data+'node26out1.tif'
-Этот оператор сужения from the input file stored inpath_data+'node22out1.tif',path_data+'node31out1.txt'
-Этот оператор применяет медианный фильтр from the input file stored inpath_data+'node30out1.tif',path_data+'node31out1.txt'
-Этот оператор вычисляет абсолютное значение градиента. from the input file stored inpath_data+'node32out1.tif'
-Пороговый фильтр from the input file stored inpath_data+'node33out1.tif'
-Каждый пиксел результирующего изображения получает значение, соответствующие интенсивности во входных изображениях и цвету, заданному для этого изображения. from the input file stored inpath_data+'node34out1.tif',path_data+'node35out1.tif'
-Этот оператор обращает изображение from the input file stored inpath_data+'node57out1.tif'
-Этот оператор сужения from the input file stored inpath_data+'node32out1.tif',path_data+'node112out1.txt'
-Этот оператор обращает изображение from the input file stored inpath_data+'node32out1.tif'
-Этот оператор сужения from the input file stored inpath_data+'node54out1.tif',path_data+'node59out1.txt'
-Этот оператор морфологической реконструкции from the input file stored inpath_data+'node54out1.tif',path_data+'node53out1.tif'
-Этот оператор вычисляет абсолютное значение градиента. from the input file stored inpath_data+'node111out1.tif'
-Этот оператор размыкания. from the input file stored inpath_data+'node58out1.tif',path_data+'node95out1.txt'
-Этот оператор вычисляет абсолютное значение градиента. from the input file stored inpath_data+'node113out1.tif'
-Пороговый фильтр from the input file stored inpath_data+'node117out1.tif'
-Этот оператор вычисляет произведение from the input file stored inpath_data+'node120out1.tif',path_data+'node113out1.tif'
-Этот оператор масштабирования from the input file stored inpath_data+'node107out1.tif'
+пиксел и помеченными нулем. from the input file stored in path_data+'node9out1.tif' to the output file path_data+'node18out1.tif'
+
+Этот оператор вычисляет произведение from the input file stored in path_data+'node18out1.tif',path_data+'node23out1.tif' to the output file path_data+'node26out1.tif'
+
+Этот оператор сужения from the input file stored in path_data+'node87out1.tif',path_data+'node59out1.txt' to the output file path_data+'node52out1.tif'
+
+Этот оператор морфологической реконструкции from the input file stored in path_data+'node87out1.tif',path_data+'node52out1.tif' to the output file path_data+'node57out1.tif'
+
+Пороговый фильтр from the input file stored in path_data+'node26out1.tif' to the output file path_data+'node22out1.tif',path_data+'node22out2.txt'
+
+Этот оператор сужения from the input file stored in path_data+'node22out1.tif',path_data+'node31out1.txt' to the output file path_data+'node30out1.tif'
+
+Этот оператор применяет медианный фильтр from the input file stored in path_data+'node30out1.tif',path_data+'node31out1.txt' to the output file path_data+'node32out1.tif'
+
+Этот оператор вычисляет абсолютное значение градиента. from the input file stored in path_data+'node32out1.tif' to the output file path_data+'node33out1.tif'
+
+Пороговый фильтр from the input file stored in path_data+'node33out1.tif' to the output file path_data+'node34out1.tif',path_data+'node34out2.txt'
+
+Каждый пиксел результирующего изображения получает значение, соответствующие интенсивности во входных изображениях и цвету, заданному для этого изображения. from the input file stored in path_data+'node34out1.tif',path_data+'node35out1.tif' to the output file path_data+'node36out1.tif'
+
+Этот оператор обращает изображение from the input file stored in path_data+'node57out1.tif' to the output file path_data+'node54out1.tif'
+
+Этот оператор сужения from the input file stored in path_data+'node32out1.tif',path_data+'node112out1.txt' to the output file path_data+'node111out1.tif'
+
+Этот оператор обращает изображение from the input file stored in path_data+'node32out1.tif' to the output file path_data+'node120out1.tif'
+
+Этот оператор сужения from the input file stored in path_data+'node54out1.tif',path_data+'node59out1.txt' to the output file path_data+'node53out1.tif'
+
+Этот оператор морфологической реконструкции from the input file stored in path_data+'node54out1.tif',path_data+'node53out1.tif' to the output file path_data+'node58out1.tif'
+
+Этот оператор вычисляет абсолютное значение градиента. from the input file stored in path_data+'node111out1.tif' to the output file path_data+'node107out1.tif'
+
+Этот оператор размыкания. from the input file stored in path_data+'node58out1.tif',path_data+'node95out1.txt' to the output file path_data+'node113out1.tif'
+
+Этот оператор вычисляет абсолютное значение градиента. from the input file stored in path_data+'node113out1.tif' to the output file path_data+'node117out1.tif'
+
+Пороговый фильтр from the input file stored in path_data+'node117out1.tif' to the output file path_data+'node119out1.tif',path_data+'node119out2.txt'
+
+Этот оператор вычисляет произведение from the input file stored in path_data+'node120out1.tif',path_data+'node113out1.tif' to the output file path_data+'node122out1.tif'
+
+Этот оператор масштабирования from the input file stored in path_data+'node107out1.tif' to the output file path_data+'node126out1.tif'
+
 Сегментация двумерных изображений методом водоотлива.
 Области изображения, соответствующие объектам, помечаются
 единицей и разделяются линиями границы, толщиной в один
-пиксел и помеченными нулем. from the input file stored inpath_data+'node122out1.tif'
-Этот оператор морфологической реконструкции from the input file stored inpath_data+'node60out1.tif',path_data+'node32out1.tif'
-Этот оператор вычисляет абсолютное значение разности from the input file stored inpath_data+'node130out1.tif',path_data+'node60out1.tif'
-Этот оператор размыкания. from the input file stored inpath_data+'node134out1.tif',path_data+'node73out1.txt'
-Этот оператор обращает изображение from the input file stored inpath_data+'node136out1.tif'
-Этот оператор вычисляет произведение from the input file stored inpath_data+'node130out1.tif',path_data+'node137out1.tif'
-Этот оператор сужения from the input file stored inpath_data+'node77out1.tif',path_data+'node73out1.txt'
-Этот оператор обращает изображение from the input file stored inpath_data+'node72out1.tif'
-Этот оператор вычисляет произведение from the input file stored inpath_data+'node129out1.tif',path_data+'node137out1.tif'
-Каждый пиксел результирующего изображения получает значение, соответствующие интенсивности во входных изображениях и цвету, заданному для этого изображения. from the input file stored inpath_data+'node82out1.tif',path_data+'node107out1.tif',path_data+'node138out1.tif'
-Этот оператор масштабирования from the input file stored inpath_data+'node138out1.tif'
-Каждый пиксел результирующего изображения получает значение, соответствующие интенсивности во входных изображениях и цвету, заданному для этого изображения. from the input file stored inpath_data+'node127out1.tif',path_data+'node126out1.tif',path_data+'node123out1.tif'
-Этот оператор вычисляет попиксельный максимум from the input file stored inpath_data+'node123out1.tif',path_data+'node127out1.tif'
+пиксел и помеченными нулем. from the input file stored in path_data+'node122out1.tif' to the output file path_data+'node60out1.tif'
+
+Этот оператор морфологической реконструкции from the input file stored in path_data+'node60out1.tif',path_data+'node32out1.tif' to the output file path_data+'node130out1.tif'
+
+Этот оператор вычисляет абсолютное значение разности from the input file stored in path_data+'node130out1.tif',path_data+'node60out1.tif' to the output file path_data+'node134out1.tif'
+
+Этот оператор размыкания. from the input file stored in path_data+'node134out1.tif',path_data+'node73out1.txt' to the output file path_data+'node136out1.tif'
+
+Этот оператор обращает изображение from the input file stored in path_data+'node136out1.tif' to the output file path_data+'node137out1.tif'
+
+Этот оператор вычисляет произведение from the input file stored in path_data+'node130out1.tif',path_data+'node137out1.tif' to the output file path_data+'node77out1.tif'
+
+Этот оператор сужения from the input file stored in path_data+'node77out1.tif',path_data+'node73out1.txt' to the output file path_data+'node72out1.tif'
+
+Этот оператор обращает изображение from the input file stored in path_data+'node72out1.tif' to the output file path_data+'node129out1.tif'
+
+Этот оператор вычисляет произведение from the input file stored in path_data+'node129out1.tif',path_data+'node137out1.tif' to the output file path_data+'node138out1.tif'
+
+Каждый пиксел результирующего изображения получает значение, соответствующие интенсивности во входных изображениях и цвету, заданному для этого изображения. from the input file stored in path_data+'node82out1.tif',path_data+'node107out1.tif',path_data+'node138out1.tif' to the output file path_data+'node110out1.tif'
+
+Этот оператор масштабирования from the input file stored in path_data+'node138out1.tif' to the output file path_data+'node123out1.tif'
+
+Каждый пиксел результирующего изображения получает значение, соответствующие интенсивности во входных изображениях и цвету, заданному для этого изображения. from the input file stored in path_data+'node127out1.tif',path_data+'node126out1.tif',path_data+'node123out1.tif' to the output file path_data+'node125out1.tif'
+
+Этот оператор вычисляет попиксельный максимум from the input file stored in path_data+'node123out1.tif',path_data+'node127out1.tif' to the output file path_data+'node133out1.tif'

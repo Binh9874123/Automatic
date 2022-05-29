@@ -236,7 +236,7 @@ def Process(file):
                                 newf.write('\n\tcv2.waitKey(500)\n')
                             print(sql1.get_message(name1))
                             with open('file_note.txt' ,'a',encoding='utf-8') as newf2:
-                                newf2.write('\n' + sql1.get_message(name1)+' from the input file stored in' + input)      
+                                newf2.write('\n\n' + sql1.get_message(name1)+' from the input file stored in ' + input + ' to the output file '+ output)      
                             #os.system('prostak.exe -o '+name+' '+id+' '+input+' '+output)
                             print('prostak.exe -o '+name+' '+id+' '+input+' '+output)
                             #img = cv2.imread(output_list[0])          
@@ -263,7 +263,7 @@ def Process(file):
                                 newf.write('\ncv2.waitKey(500)\n')  
                             print(sql1.get_message(name1))
                             with open('file_note.txt' ,'a',encoding='utf-8') as newf2:
-                                newf2.write('\n' + sql1.get_message(name1))     
+                                newf2.write('\n\n' + sql1.get_message(name1) + ' '+id + ' to the output file '+ output)     
                             print('prostak.exe -o '+name+' '+id+' '+output)
                             # img = cv2.imread(output_list[0])          
                             # if(img is not None):
