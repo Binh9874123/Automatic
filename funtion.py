@@ -1,81 +1,115 @@
 import os 
 import cv2
-def gerosion_result(command ,id , input ,output):
-	os.system(command+' -o gerosion '+id+' '+input+' '+output)
+def lhbg_result(command ,id , input ,output):
+	os.system(command+' -o lhbg '+id+' '+input+' '+output)
 	return output
 
 def strel_result(command ,id , output):
 	os.system(command+' -o strel '+id+' '+output)
 	return output
 
-def reconstruct_result(command ,id , input ,output):
-	os.system(command+' -o reconstruct '+id+' '+input+' '+output)
+def median3d_result(command ,id , input ,output):
+	os.system(command+' -o median3d '+id+' '+input+' '+output)
 	return output
 
-def invert_result(command ,id , input ,output):
-	os.system(command+' -o invert '+id+' '+input+' '+output)
+def strel3d_result(command ,id , output):
+	os.system(command+' -o strel3d '+id+' '+output)
 	return output
 
-def andif_result(command ,id , input ,output):
-	os.system(command+' -o andif '+id+' '+input+' '+output)
+def vaff_result(command ,id , input ,output):
+	os.system(command+' -o vaff '+id+' '+input+' '+output)
+	return output
+
+def invert3d_result(command ,id , input ,output):
+	os.system(command+' -o invert3d '+id+' '+input+' '+output)
+	return output
+
+def gerosion3d_result(command ,id , input ,output):
+	os.system(command+' -o gerosion3d '+id+' '+input+' '+output)
+	return output
+
+def reconstruct3d_result(command ,id , input ,output):
+	os.system(command+' -o reconstruct3d '+id+' '+input+' '+output)
+	return output
+
+def mul3d_result(command ,id , input ,output):
+	os.system(command+' -o mul3d '+id+' '+input+' '+output)
+	return output
+
+def vmax_result(command ,id , input ,output):
+	os.system(command+' -o vmax '+id+' '+input+' '+output)
+	return output
+
+def despekle3d_result(command ,id , input ,output):
+	os.system(command+' -o despekle3d '+id+' '+input+' '+output)
+	return output
+
+def hno_result(command ,id , input ,output):
+	os.system(command+' -o hno '+id+' '+input+' '+output)
+	return output
+
+def imcanny_result(command ,id , input ,output):
+	img1 = cv2.imread(input)
+	img = cv2.Canny(img1,3,10)
+	cv2.imwrite(output,img)
+	return output
+
+def chole_result(command ,id , input ,output):
+	os.system(command+' -o chole '+id+' '+input+' '+output)
+	return output
+
+def distance_result(command ,id , input ,output):
+	os.system(command+' -o distance '+id+' '+input+' '+output)
 	return output
 
 def cwtsd_result(command ,id , input ,output):
 	os.system(command+' -o cwtsd '+id+' '+input+' '+output)
 	return output
 
-def mul_result(command ,id , input ,output):
-	os.system(command+' -o mul '+id+' '+input+' '+output)
+def sselect_result(command ,id , input ,output):
+	os.system(command+' -o sselect '+id+' '+input+' '+output)
 	return output
 
-def threshold_result(command ,id , input ,output):
-	os.system(command+' -o threshold '+id+' '+input+' '+output)
+def vstrel_result(command ,id , input ,output):
+	os.system(command+' -o vstrel '+id+' '+input+' '+output)
 	return output
 
-def expand_result(command ,id , input ,output):
-	os.system(command+' -o expand '+id+' '+input+' '+output)
+def qu3d2csv_result(command ,id , input ,output):
+	os.system(command+' -o qu3d2csv '+id+' '+input+' '+output)
 	return output
 
-def display_result(command ,id , input ,output):
-	os.system(command+' -o display '+id+' '+input+' '+output)
+def qu3dinit_result(command ,id , input ,output):
+	os.system(command+' -o qu3dinit '+id+' '+input+' '+output)
 	return output
 
-def heq_result(command ,id , input ,output):
-	os.system(command+' -o heq '+id+' '+input+' '+output)
+def expand3d_result(command ,id , input ,output):
+	os.system(command+' -o expand3d '+id+' '+input+' '+output)
 	return output
 
-def median_result(command ,id , input ,output):
-	os.system(command+' -o median '+id+' '+input+' '+output)
+def shrink3d_result(command ,id , input ,output):
+	os.system(command+' -o shrink3d '+id+' '+input+' '+output)
 	return output
 
-def gmag_result(command ,id , input ,output):
-	os.system(command+' -o gmag '+id+' '+input+' '+output)
+def gopen_result(command ,id , input ,output):
+	os.system(command+' -o gopen '+id+' '+input+' '+output)
 	return output
 
-def movl_result(command ,id , input ,output):
-	os.system(command+' -o movl '+id+' '+input+' '+output)
+def turn3d_result(command ,id , input ,output):
+	os.system(command+' -o turn3d '+id+' '+input+' '+output)
 	return output
 
-def avg_result(command ,id , input ,output):
-	os.system(command+' -o avg '+id+' '+input+' '+output)
+def apee3d_result(command ,id , input ,output):
+	os.system(command+' -o apee3d '+id+' '+input+' '+output)
 	return output
 
-def despekle_result(command ,id , input ,output):
-	os.system(command+' -o despekle '+id+' '+input+' '+output)
+def geometry3d_result(command ,id , input ,output):
+	os.system(command+' -o geometry3d '+id+' '+input+' '+output)
 	return output
 
-def gclose_result(command ,id , input ,output):
-	os.system(command+' -o gclose '+id+' '+input+' '+output)
+def qu3d_result(command ,id , input ,output):
+	os.system(command+' -o qu3d '+id+' '+input+' '+output)
 	return output
 
-def shrink_result(command ,id , input ,output):
-	os.system(command+' -o shrink '+id+' '+input+' '+output)
-	return output
-
-def max_result(command ,id , input ,output):
-	os.system(command+' -o max '+id+' '+input+' '+output)
-	return output
-
-def minusabs_result(command ,id , input ,output):
-	os.system(command+' -o minusabs '+id+' '+input+' '+output)
+def quremask_result(command ,id , input ,output):
+	os.system(command+' -o quremask '+id+' '+input+' '+output)
 	return output

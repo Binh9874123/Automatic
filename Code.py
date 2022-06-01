@@ -26,6 +26,9 @@ class Node(object):
         if isinstance(obj, Node) and obj.num_Node == self.num_Node: 
             return True
         return False
+
+
+
 def Check_Node(number , ListNode):
     return Node(number,None,None,False) in ListNode
 ListNode = []
@@ -135,7 +138,7 @@ def Process(file):
                     
                     name = config_section1['name']#lay ten ham 
                     name1 = config_section1['name']
-                    if(name == 'heqm'):
+                    if(name == 'heqm' ):
                         name = 'heq'
                     if(name == 'avg2'):
                         name = 'avg'
@@ -156,6 +159,7 @@ def Process(file):
                     output_num = 0#so luong dau ra = 0
                     if 'file' in list_element_of_node: #neu thong so file co trong Node      
                         str_value_of_file = sql1.get_ouput(name1) #lay gia tri trong option file  
+                        print(name , str_value_of_file)
                         list_str_value_of_file = str_value_of_file if ',' not in  str_value_of_file else  str_value_of_file.split(',')#lay duoi dau ra cua file 
                         output_num =  1 if ',' not in  str_value_of_file else  len(str_value_of_file.split(','))#dem so luong dau vao bang cach kiem tra so luong any trong option file 
                         
@@ -172,10 +176,18 @@ def Process(file):
                     if name not in list_name:
                         list_name.append(name)
                         if node.in_Node is not None:
-                            with open('funtion.py', 'a') as newf1:
-                                        newf1.write('\ndef '+name+'_result(command ,id , input ,output):')
-                                        newf1.write('\n\tos.system(command+\' -o '+name+' \'+id+\' \'+input+\' \'+output)')
-                                        newf1.write('\n\treturn output\n')
+                            if name == 'imcanny' :
+                                with open('funtion.py', 'a') as newf1:
+                                            newf1.write('\ndef '+name+'_result(command ,id , input ,output):')
+                                            newf1.write('\n\timg1 = cv2.imread(input)')
+                                            newf1.write('\n\timg = cv2.Canny(img1,3,10)')
+                                            newf1.write('\n\tcv2.imwrite(output,img)')
+                                            newf1.write('\n\treturn output\n')
+                            else:
+                                with open('funtion.py', 'a') as newf1:
+                                            newf1.write('\ndef '+name+'_result(command ,id , input ,output):')
+                                            newf1.write('\n\tos.system(command+\' -o '+name+' \'+id+\' \'+input+\' \'+output)')
+                                            newf1.write('\n\treturn output\n')
                             
                         else:
                             with open('funtion.py', 'a') as newf1:
@@ -230,7 +242,7 @@ def Process(file):
                                 newf.write('\nif type(input) != type(\'abc\'):')
                                 newf.write('\n\tinput = \',\'.join(input)')
                                 newf.write('\nfun.'+name+'_result(command,'+'\''+id+'\''+',input,output)')
-                                newf.write('\nimg = cv2.imread(\''+output_list[0]+'\')')
+                                newf.write('\nimg = cv2.imread(path_data +\''+output_list[0]+'\')')
                                 newf.write('\nif(show_flag == 1 and img is not None):')
                                 newf.write('\n\tcv2.imshow(\'photo\',img)')
                                 newf.write('\n\tcv2.waitKey(500)\n')
@@ -257,7 +269,7 @@ def Process(file):
                                 newf.write('\nif type(output) != type(\'abc\'):')
                                 newf.write('\n\toutput = \',\'.join(output)')
                                 newf.write('\nfun.'+name+'_result(command,''\''+id+'\',output)')
-                                newf.write('\nimg = cv2.imread(\''+output_list[0]+'\')')
+                                newf.write('\nimg = cv2.imread(path_data +\''+output_list[0]+'\')')
                                 newf.write('\nif(show_flag == 1 and img is not None):')
                                 newf.write('\n\tcv2.imshow(\'photo\',img)')
                                 newf.write('\ncv2.waitKey(500)\n')  
@@ -278,7 +290,7 @@ def Process(file):
                  
 
 
-Process("cells.ap")
+Process("C:\\Users\\Binh9874123\\OneDrive\\Desktop\\Automatic\\Xulyhinhanh\\M_1C_4_dots_SXL\\M_1C_4_dots_SXL.ap")
                     
             
                     

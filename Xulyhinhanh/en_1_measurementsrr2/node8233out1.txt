@@ -1,0 +1,3 @@
+<halfsizes>
+1024,1024,1024,1024
+</halfsizes>

@@ -1,3 +1,0 @@
-<threshold>
-1.000000
-</threshold>
