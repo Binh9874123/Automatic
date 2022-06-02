@@ -29,14 +29,7 @@ Sigma;double;1;
 Low frac;double;0.1;
 Upper frac;string;0.3;
 
-$1x$2+$3+$4 -depth 8;', 'This operator implements the Canny algorithm for edge detection.
-
-INPUT
-1 image:.tif
-OUTPUT
-1 image:.tif
-PARAMETERS
-The thresholds range from 0 to 100% (e.g. -canny 0x1+10%+30%) with {+lower-percent} < {+upper-percent}. If {+upper-percent} is increased but {+lower-percent} remains the same, lesser edge components will be detected, but their lengths will be the same. If {+lower-percent} is increased but {+upper-percent} is the same, the same number of edge components will be detected but their lengths will be shorter. The default thresholds are shown. The radiusxsigma controls a gaussian blur applied to the input image to reduce noise and smooth the edges.', 'canny', 2, 1, 1, 1);
+$1x$2+$3+$4 -depth 8;', 'This operator implements the Canny algorithm for edge detection. ', 'canny', 2, 1, 1, 1);
 INSERT OR REPLACE INTO Operators (name, implementor, executable, type, inputs, outputs, uidescription, message, metaname, metaweight, Сегментация, Пороговый_фильтр, Порог, Адаптивный, Статистический) VALUES ('lat','IM','convert -lat', 1, 'tif', 'tif', '1;
 Радиус;int;10;
 

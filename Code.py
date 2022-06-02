@@ -290,7 +290,7 @@ def Process(file):
                  
 
 
-Process("C:\\Users\\Binh9874123\\OneDrive\\Desktop\\Automatic\\Xulyhinhanh\\M_1C_4_dots_SXL\\M_1C_4_dots_SXL.ap")
+Process("C:\\Users\\Binh9874123\\OneDrive\\Desktop\\Automatic\\Xulyhinhanh\\en_1_measurementsrr2\\en_1_measurementsrr2.ap")
                     
             
                     
