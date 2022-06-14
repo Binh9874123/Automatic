@@ -1,2 +1,3 @@
 import os 
 import cv2
+from wand.image import Image

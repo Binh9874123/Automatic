@@ -197,7 +197,7 @@ vip=0
 label=out ch nuc
 
 [Node:7994]
-info=0;295;1468;30;35;0;0;0;0;0;0;0;0;0;
+info=0;249;1479;30;35;0;0;0;0;0;0;0;0;0;
 id=
 type=OUS
 file=en_1-nucmask.tif
@@ -412,7 +412,7 @@ vip=0
 label=geometry3d mask
 
 [Node:8122]
-info=0;25;1300;30;50;0;0;0;0;0;0;0;0;1;
+info=0;25;1300;30;50;0;0;0;0;0;0;0;0;0;
 id=%20 %20
 type=PAM
 file=.any
@@ -930,7 +930,7 @@ vip=0
 label=in cDAPI
 
 [Node:8244]
-info=0;727;1133;30;50;0;0;0;0;0;0;0;0;0;
+info=0;743;1147;30;50;0;0;0;0;0;0;0;0;1;
 id=-r -1
 type=PAM
 file=.any
@@ -966,7 +966,7 @@ vip=0
 label=out cell mask
 
 [Node:8256]
-info=0;639;1398;30;35;0;0;0;0;0;0;0;0;0;
+info=0;631;1447;30;35;0;0;0;0;0;0;0;0;0;
 id=
 type=OUS
 file=crop-sm.txt

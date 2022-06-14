@@ -3,6 +3,6 @@ import cv2
 import funtion as fun
 command = 'prostak.exe'
 
-path_data = 'C:\\Users\\Binh9874123\\OneDrive\\Desktop\\Automatic\\'
+pathdata = 'C:\\Users\\Binh9874123\\OneDrive\\Desktop\\Automatic\\Xulyhinhanh\\M_1C_4_dots_DI\\'
 
 show_flag = 0

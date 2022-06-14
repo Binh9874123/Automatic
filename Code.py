@@ -179,9 +179,10 @@ def Process(file):
                             if name == 'imcanny' :
                                 with open('funtion.py', 'a') as newf1:
                                             newf1.write('\ndef '+name+'_result(command ,id , input ,output):')
-                                            newf1.write('\n\timg1 = cv2.imread(input)')
-                                            newf1.write('\n\timg = cv2.Canny(img1,3,10)')
-                                            newf1.write('\n\tcv2.imwrite(output,img)')
+                                            newf1.write('\n\twith Image(filename = input) as image:')
+                                            newf1.write('\n\t\twith image.clone() as canny:')
+                                            newf1.write('\n\t\t\tcanny.canny(0, 1, 0.1, 0.3)')
+                                            newf1.write('\n\t\t\tcanny.save(filename =output)')
                                             newf1.write('\n\treturn output\n')
                             else:
                                 with open('funtion.py', 'a') as newf1:
@@ -229,12 +230,13 @@ def Process(file):
                             *temp1,  = node.in_Node
                             temp = sorted([*map(lambda x: int(x), temp1)])
                             #print(node.num_Node)
-                            input = ','.join(map(lambda x:'path_data+\''+node.in_Node[x].out_Node[1]+'\'',temp))
+                            input = ','.join(map(lambda x:'pathdata+\''+node.in_Node[x].out_Node[1]+'\'',temp))
                         # output_list = ['node'+node.num_Node+'out'+str(x)+'.out' for x in range(1,output_num+1,1)]
                         
-                            output = ','.join('path_data+\''+x+'\'' for x in output_list)
+                            output = ','.join('pathdata+\''+x+'\'' for x in output_list)
                             with open('final.py', 'a') as newf:
                                 #newf.write('\nos.system(command+\' -o '+name+' '+id+' '+input+' '+output+'\')')
+                                
                                 newf.write('\ninput = ('+input+')')
                                 newf.write('\noutput = ('+output+')')
                                 newf.write('\nif type(output) != type(\'abc\'):')
@@ -242,13 +244,14 @@ def Process(file):
                                 newf.write('\nif type(input) != type(\'abc\'):')
                                 newf.write('\n\tinput = \',\'.join(input)')
                                 newf.write('\nfun.'+name+'_result(command,'+'\''+id+'\''+',input,output)')
-                                newf.write('\nimg = cv2.imread(path_data +\''+output_list[0]+'\')')
+                                newf.write('\nimg = cv2.imread(pathdata +\''+output_list[0]+'\')')
                                 newf.write('\nif(show_flag == 1 and img is not None):')
                                 newf.write('\n\tcv2.imshow(\'photo\',img)')
                                 newf.write('\n\tcv2.waitKey(500)\n')
+                                
                             print(sql1.get_message(name1))
                             with open('file_note.txt' ,'a',encoding='utf-8') as newf2:
-                                newf2.write('\n\n' + sql1.get_message(name1)+' from the input file stored in ' + input + ' to the output file '+ output)      
+                                newf2.write('\n\n' + sql1.get_message(name1)+' из входного файла, хранящегося в ' + input + ' в выходной файл '+ output)      
                             #os.system('prostak.exe -o '+name+' '+id+' '+input+' '+output)
                             print('prostak.exe -o '+name+' '+id+' '+input+' '+output)
                             #img = cv2.imread(output_list[0])          
@@ -261,21 +264,22 @@ def Process(file):
                             
                     else : 
                             print("Node" , num_node)
-                            output = ','.join('path_data+\''+x+'\'' for x in output_list)
+                            output = ','.join('pathdata+\''+x+'\'' for x in output_list)
                             #os.system('prostak.exe -o '+name+' '+id+' '+output)
                             with open('final.py', 'a') as newf:
                                 #newf.write('\nos.system(command+\' -o '+name+' '+id+' '+output+'\')')
+                                
                                 newf.write('\noutput = ('+output+')')
                                 newf.write('\nif type(output) != type(\'abc\'):')
                                 newf.write('\n\toutput = \',\'.join(output)')
                                 newf.write('\nfun.'+name+'_result(command,''\''+id+'\',output)')
-                                newf.write('\nimg = cv2.imread(path_data +\''+output_list[0]+'\')')
+                                newf.write('\nimg = cv2.imread(pathdata +\''+output_list[0]+'\')')
                                 newf.write('\nif(show_flag == 1 and img is not None):')
                                 newf.write('\n\tcv2.imshow(\'photo\',img)')
                                 newf.write('\ncv2.waitKey(500)\n')  
                             print(sql1.get_message(name1))
                             with open('file_note.txt' ,'a',encoding='utf-8') as newf2:
-                                newf2.write('\n\n' + sql1.get_message(name1) + ' '+id + ' to the output file '+ output)     
+                                newf2.write('\n\n' + sql1.get_message(name1) + ' '+id + ' в выходной файл '+ output)     
                             print('prostak.exe -o '+name+' '+id+' '+output)
                             # img = cv2.imread(output_list[0])          
                             # if(img is not None):
@@ -290,8 +294,8 @@ def Process(file):
                  
 
 
-Process("C:\\Users\\Binh9874123\\OneDrive\\Desktop\\Automatic\\Xulyhinhanh\\en_1_measurementsrr2\\en_1_measurementsrr2.ap")
-                    
+Process("C:\\Users\\Binh9874123\\OneDrive\\Desktop\\Automatic\\Xulyhinhanh\\M_1C_4_dots_DI\\M_1C_4_dots_DI.ap")
+           
             
                     
                 
